@@ -125,7 +125,7 @@ annotation <- groups %>%
   select(day, count, overlaps, label) %>%
   distinct()
 
-ggplot(groups, aes(x= count*2)) + geom_histogram(binwidth =0.8) + 
+ggplot(groups, aes(x= count*2)) + geom_histogram(binwidth =0.05) + 
   geom_density(aes(y=2 * ..count..))+
   geom_text(data = annotation,  aes(x = count, y = overlaps, label = ifelse(overlaps < 100, overlaps, "")), hjust =0, vjust=0, cex = 4, color= "red")+
   facet_grid(day ~.) +theme_bw() + xlab("size") +ggtitle("Group sizes")
